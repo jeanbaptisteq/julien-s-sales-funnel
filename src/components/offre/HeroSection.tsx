@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 const HeroSection = () => (
@@ -7,7 +7,7 @@ const HeroSection = () => (
       <div className="absolute top-20 right-10 w-96 h-96 rounded-full bg-accent blur-3xl" />
     </div>
     <div className="container mx-auto px-4 py-20 md:py-28 relative z-10 max-w-4xl text-center">
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+      <div>
         <span className="inline-block px-4 py-1.5 rounded-full bg-primary-foreground/20 text-primary-foreground text-sm font-medium mb-6">
           🇫🇷 NOUVELLE MÉTHODE — Plus efficace que jamais
         </span>
@@ -29,12 +29,12 @@ const HeroSection = () => (
           <span className="text-primary-foreground/70 text-sm">4.9/5 — Avis étudiants</span>
         </div>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="#pricing" className="bg-accent text-accent-foreground font-bold py-4 px-8 rounded-xl text-lg hover:opacity-90 transition-opacity inline-flex items-center gap-2">
+          <Link to="/paiement" className="bg-accent text-accent-foreground font-bold py-4 px-8 rounded-xl text-lg hover:opacity-90 transition-opacity inline-flex items-center gap-2">
             Rejoindre le programme — 397 € <ArrowRight className="w-5 h-5" />
-          </a>
+          </Link>
           <span className="text-primary-foreground/60 text-sm">ou 3 × 139 €</span>
         </div>
-      </motion.div>
+      </div>
     </div>
   </div>
 );
