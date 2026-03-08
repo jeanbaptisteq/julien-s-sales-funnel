@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FinalCtaSection = () => (
   <div className="gradient-hero-bg py-16">
@@ -9,12 +10,12 @@ const FinalCtaSection = () => (
       <p className="text-primary-foreground/80 mb-8">
         Rejoins le programme et commence à parler français avec confiance.
       </p>
-      <a
-        href="#pricing"
+      <Link
+        to="/paiement"
         className="inline-flex items-center gap-2 bg-accent text-accent-foreground font-bold py-4 px-10 rounded-xl text-lg hover:opacity-90 transition-opacity"
       >
         Je rejoins le programme — 397 € <ArrowRight className="w-5 h-5" />
-      </a>
+      </Link>
       <p className="text-primary-foreground/50 text-xs mt-4">
         🔒 Garantie satisfait ou remboursé — 14 jours
       </p>
