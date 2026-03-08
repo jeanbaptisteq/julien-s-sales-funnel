@@ -51,7 +51,7 @@ const PaiementPage = () => {
             data-whop-checkout-plan-id={WHOP_PLAN_ID}
             data-whop-color-scheme="light"
             data-whop-color="#4B7BF5"
-          />
+          ></div>
 
           {/* Fallback if Whop doesn't load (e.g. in preview) */}
           {!checkoutLoaded && (
