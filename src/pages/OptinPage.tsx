@@ -145,7 +145,7 @@ const OptinPage = () => {
               <p className="text-accent font-bold text-xl mb-6">La vérité ? <span className="text-primary-foreground font-normal">Rien de tout ça ne marche.</span></p>
               <div className="max-w-2xl mx-auto bg-accent/10 rounded-2xl p-8">
                 <p className="text-primary-foreground text-lg leading-relaxed">
-                  Avec Professeur Julien, tu suis une <strong className="text-accent">méthode structurée</strong>, avec un vrai <strong className="text-accent">accompagnement humain</strong>, et seulement <strong className="text-accent">1 à 2h par semaine</strong> suffisent pour passer de A1 à B2.
+                  Moi c'est Julien, et je te propose une <strong className="text-accent">méthode structurée</strong>, avec un vrai <strong className="text-accent">accompagnement humain</strong>. Seulement <strong className="text-accent">1 à 2h par semaine</strong> suffisent pour passer de A1 à B2.
                 </p>
               </div>
             </div>
