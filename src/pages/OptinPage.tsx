@@ -200,10 +200,9 @@ const OptinPage = () => {
               className="w-28 h-28 rounded-full object-cover shadow-lg border-4 border-primary/20"
             />
             <div>
-              <h3 className="text-2xl font-bold font-heading text-foreground mb-2">Qui est Julien ?</h3>
+              <h3 className="text-2xl font-bold font-heading text-foreground mb-2">Qui suis-je ?</h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                Professeur de français passionné, Julien accompagne chaque semaine des dizaines d'étudiants du monde entier.
-                Sa méthode combine pratique orale intensive, accompagnement personnalisé et outils modernes.
+                Moi c'est Julien, professeur de français passionné. J'accompagne chaque semaine des dizaines d'étudiants du monde entier dans leur progression. Ma méthode combine pratique orale intensive, accompagnement personnalisé et outils modernes.
               </p>
               <div className="flex items-center gap-4">
                 <div className="flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-accent text-accent" />)}</div>
