@@ -1,6 +1,3 @@
-import { motion } from "framer-motion";
-import { CheckCircle, X, Video, Users, Bot, Clock, Star, MessageCircle, FileText, Award, Calendar, ShieldCheck, ArrowRight, Zap, Trophy } from "lucide-react";
-import profileImage from "@/assets/profile-julien.jpg";
 import HeroSection from "@/components/offre/HeroSection";
 import AvantApresSection from "@/components/offre/AvantApresSection";
 import ModulesSection from "@/components/offre/ModulesSection";
@@ -16,7 +13,6 @@ import FinalCtaSection from "@/components/offre/FinalCtaSection";
 const OffrePage = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Topbar */}
       <div className="bg-foreground text-primary-foreground text-center py-2.5 text-sm font-medium tracking-wide">
         🇫🇷 PROFESSEUR JULIEN — Programme Complet de Français
       </div>
