@@ -141,16 +141,13 @@ const OptinPage = () => {
                 </div>
               ))}
             </div>
-            <div className="text-center mt-8">
-              <div className="inline-block bg-accent/20 border border-accent/30 rounded-xl px-6 py-4">
-                <p className="text-accent font-bold text-lg">La vérité ? <span className="text-primary-foreground/80 font-normal">Rien de tout ça ne marche.</span></p>
+            <div className="text-center mt-10">
+              <p className="text-accent font-bold text-xl mb-6">La vérité ? <span className="text-primary-foreground font-normal">Rien de tout ça ne marche.</span></p>
+              <div className="max-w-2xl mx-auto bg-accent/10 rounded-2xl p-8">
+                <p className="text-primary-foreground text-lg leading-relaxed">
+                  Avec Professeur Julien, tu suis une <strong className="text-accent">méthode structurée</strong>, avec un vrai <strong className="text-accent">accompagnement humain</strong>, et seulement <strong className="text-accent">1 à 2h par semaine</strong> suffisent pour passer de A1 à B2.
+                </p>
               </div>
-            </div>
-            <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-2xl p-6 mt-8 text-center">
-              <span className="inline-block bg-primary rounded-lg px-3 py-1 text-primary-foreground text-sm font-bold mb-3">PROFESSEUR JULIEN</span>
-              <p className="text-primary-foreground font-medium text-lg">
-                On casse le mythe. Avec une <strong>méthode structurée</strong>, un vrai <strong>accompagnement</strong> et seulement <strong>1 à 2h par semaine</strong>, tu peux passer de A1 à B2.
-              </p>
             </div>
           </motion.div>
         </div>
