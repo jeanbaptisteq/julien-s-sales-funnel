@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ShieldCheck, ExternalLink } from "lucide-react";
-
-const WHOP_PLAN_ID = "plan_GYvtakEDJ2pza";
-const WHOP_FALLBACK_URL = `https://whop.com/checkout/${WHOP_PLAN_ID}`;
+import { ArrowLeft, ShieldCheck } from "lucide-react";
+import { WhopCheckoutEmbed } from "@whop/checkout/react";
 
 const PaiementPage = () => {
   const [checkoutLoaded, setCheckoutLoaded] = useState(false);
