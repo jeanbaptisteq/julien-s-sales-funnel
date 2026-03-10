@@ -1,21 +1,21 @@
 import { motion } from "framer-motion";
-import { CheckCircle, X, ArrowRight } from "lucide-react";
+import { CheckCircle, X } from "lucide-react";
 
 const points = [
-  { avant: "Tu bloques quand tu parles à un natif", apres: "Tu comprends et tu réponds naturellement" },
-  { avant: "Tu manques de confiance pour ouvrir la bouche", apres: "Tu parles sans peur de faire des erreurs" },
-  { avant: "Tu ne sais pas comment progresser", apres: "Tu as une méthode claire et des habitudes solides" },
-  { avant: "Tu es loin du niveau requis pour le DELF", apres: "Tu es prêt(e) à passer ton certificat" },
+  { avant: "Tu bloques face aux natifs dans les échanges du quotidien", apres: "Tu comprends mieux et tu réponds plus naturellement" },
+  { avant: "Tu stresses pour un appel, un rendez-vous ou une démarche", apres: "Tu oses parler dans des situations réelles sans paniquer" },
+  { avant: "Tu ne sais pas quoi travailler pour vraiment t'intégrer", apres: "Tu suis un plan clair avec des habitudes utiles chaque semaine" },
+  { avant: "Tu repousses logement, papiers ou opportunités pro par peur du français", apres: "Tu avances dans tes démarches et ta vie pro avec plus d'assurance" },
 ];
 
 const AvantApresSection = () => (
-  <section className="py-16 md:py-20 bg-foreground">
+  <section className="py-16 md:py-20 bg-background">
     <div className="container mx-auto px-4 max-w-5xl">
-      <h2 className="text-3xl md:text-4xl font-bold font-heading text-primary-foreground text-center mb-4">
+      <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground text-center mb-4">
         Ce programme est fait pour <span className="text-accent">TOI</span> si…
       </h2>
-      <p className="text-primary-foreground/60 text-center mb-12 max-w-2xl mx-auto">
-        Voici ce que mes étudiants vivent avant et après le programme
+      <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
+        Voici ce que mes étudiants vivent avant et après le programme d'intégration
       </p>
 
       {/* Two columns: Avant / Après */}
@@ -36,7 +36,7 @@ const AvantApresSection = () => (
                 className="flex items-start gap-3"
               >
                 <X className="w-5 h-5 text-destructive mt-0.5 flex-shrink-0" />
-                <span className="text-primary-foreground/70">{p.avant}</span>
+                <span className="text-foreground/80">{p.avant}</span>
               </motion.li>
             ))}
           </ul>
@@ -58,7 +58,7 @@ const AvantApresSection = () => (
                 className="flex items-start gap-3"
               >
                 <CheckCircle className="w-5 h-5 text-accent mt-0.5 flex-shrink-0" />
-                <span className="text-primary-foreground font-medium">{p.apres}</span>
+                <span className="text-foreground font-medium">{p.apres}</span>
               </motion.li>
             ))}
           </ul>

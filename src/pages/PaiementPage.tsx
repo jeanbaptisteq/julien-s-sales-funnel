@@ -5,10 +5,6 @@ import { WhopCheckoutEmbed } from "@whop/checkout/react";
 const PaiementPage = () => {
   return (
     <div className="min-h-screen bg-background">
-      <div className="bg-foreground text-primary-foreground text-center py-2.5 text-sm font-medium tracking-wide">
-        🇫🇷 PROFESSEUR JULIEN — Finalise ton inscription
-      </div>
-
       <div className="container mx-auto px-4 py-8 max-w-3xl">
         <Link to="/offre" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8 text-sm">
           <ArrowLeft className="w-4 h-4" /> Retour à l'offre
@@ -16,10 +12,10 @@ const PaiementPage = () => {
 
         <div className="text-center mb-8">
           <h1 className="text-3xl md:text-4xl font-bold font-heading text-foreground mb-2">
-            Finalise ton inscription
+            Finalise ton inscription au programme
           </h1>
           <p className="text-muted-foreground">
-            Programme Complet — <strong className="text-foreground">397 €</strong> ou 3 × 139 €
+            Programme Intégration France — <strong className="text-foreground">397 €</strong> ou 3 × 139 €
           </p>
         </div>
 

@@ -4,24 +4,21 @@ import { CheckCircle } from "lucide-react";
 const modules = [
   {
     num: "01",
-    title: "Parler avec confiance",
-    level: "A2–B1 · Expression orale",
-    value: "Valeur 149€",
-    items: ["Techniques anti-blocage", "Grammaire en contexte", "Exprimer ses opinions, argumenter", "Flashcards de grammaire", "Live hebdo : débats guidés"],
+    title: "Parler au quotidien en France",
+    level: "A2–B1 · Vie quotidienne",
+    items: ["Techniques anti-blocage", "Parler logement, transport, santé", "Exprimer un besoin, demander de l'aide", "Flashcards de grammaire en contexte", "Live hebdo : mises en situation guidées"],
   },
   {
     num: "02",
-    title: "Le français professionnel",
-    level: "B1 · Milieu professionnel",
-    value: "Valeur 149€",
-    items: ["Vocabulaire du travail", "Écrire un email, lettre formelle", "Documents officiels", "Flashcards thématiques", "Live hebdo : simulations"],
+    title: "S'intégrer au travail et dans les démarches",
+    level: "B1 · Vie pro et administrative",
+    items: ["Vocabulaire du travail", "Écrire emails et messages professionnels", "Comprendre formulaires et documents", "Flashcards thématiques", "Live hebdo : simulations d'entretiens et démarches"],
   },
   {
     num: "03",
-    title: "Préparation DELF",
-    level: "B1–B2 · Certification",
-    value: "Valeur 199€",
-    items: ["Grammaire avancée", "Stratégies par épreuve", "2 examens blancs complets", "Flashcards de révision", "Live hebdo : simulation d'examen"],
+    title: "Consolider ton niveau et valider ta progression",
+    level: "B1–B2 · Intégration avancée",
+    items: ["Grammaire avancée utile au quotidien", "Argumenter et gérer des échanges complexes", "2 examens blancs DELF en bonus", "Flashcards de révision", "Live hebdo : simulations de situations réelles"],
   },
 ];
 
@@ -29,9 +26,9 @@ const ModulesSection = () => (
   <section className="py-16 md:py-20">
     <div className="container mx-auto px-4 max-w-5xl">
       <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground text-center mb-4">
-        Ce que tu auras en rejoignant le <span className="text-accent">Programme</span>
+        Ce que tu auras pour <span className="text-accent">t'intégrer en France</span>
       </h2>
-      <p className="text-muted-foreground text-center mb-12">Chaque module contient des vidéos + un live hebdomadaire avec Julien</p>
+      <p className="text-muted-foreground text-center mb-12">Chaque module contient des vidéos + un live hebdomadaire orientés situations réelles</p>
       <div className="space-y-6">
         {modules.map((mod, i) => (
           <motion.div
@@ -39,11 +36,8 @@ const ModulesSection = () => (
             initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="relative bg-card rounded-2xl p-8 border border-border shadow-sm"
+            className="bg-card rounded-2xl p-8 border border-border shadow-sm"
           >
-            <span className="absolute -top-3 right-4 bg-accent text-accent-foreground text-xs font-bold px-3 py-1 rounded-full">
-              {mod.value}
-            </span>
             <div className="flex items-start gap-6">
               <span className="text-5xl font-bold gradient-text font-heading">{mod.num}</span>
               <div className="flex-1">
@@ -62,14 +56,9 @@ const ModulesSection = () => (
           </motion.div>
         ))}
       </div>
-      <div className="mt-8 text-center">
-        <div className="inline-block bg-secondary border border-border rounded-xl px-6 py-3">
-          <p className="text-sm text-foreground">
-            <strong>Valeur cumulée réelle :</strong>{" "}
-            <span className="text-accent font-bold text-lg line-through decoration-destructive">497€</span>
-          </p>
-        </div>
-      </div>
+      <p className="mt-8 text-center text-sm text-muted-foreground">
+        Un parcours complet et progressif, pensé pour des résultats concrets en France.
+      </p>
     </div>
   </section>
 );

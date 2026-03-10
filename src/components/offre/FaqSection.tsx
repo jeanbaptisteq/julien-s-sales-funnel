@@ -1,9 +1,8 @@
 const faqs = [
-  { q: "Le programme est-il adapté aux débutants complets ?", a: "Oui. Le module 1 commence dès le niveau A1. Que tu démarres de zéro ou que tu aies quelques bases, le programme s'adapte à ton point de départ." },
-  { q: "Est-ce que je peux suivre à mon propre rythme ?", a: "Toutes les vidéos sont en accès libre sur la plateforme, disponibles 24h/24. Seuls les lives hebdomadaires avec Julien ont un horaire fixe — et ils sont enregistrés si tu ne peux pas y assister." },
-  { q: "À quoi sert l'agent IA ?", a: "L'agent IA t'aide à planifier ta semaine d'apprentissage, répondre à tes questions grammaticales, corriger tes phrases à l'écrit et suggérer des exercices selon ton niveau." },
-  { q: "La session 1:1 avec Julien, c'est quand ?", a: "Cette session de 30 minutes a lieu dans les premiers jours après ton inscription. Elle sert à analyser ton niveau, comprendre tes objectifs et créer un plan d'action personnalisé." },
-  { q: "Le programme prépare-t-il vraiment au DELF ?", a: "Oui, le module 3 est entièrement dédié à la préparation au DELF. Tu passes deux examens blancs complets avec corrections détaillées." },
+  { q: "Est-ce utile si je ne suis pas encore en France ?", a: "Oui, c'est justement prévu pour ça. Tu prépares les situations que tu vas vivre (logement, travail, démarches, échanges du quotidien) pour arriver plus confiant(e) et opérationnel(le)." },
+  { q: "Est-ce que je peux suivre à mon propre rythme ?", a: "Oui. Les vidéos sont accessibles 24h/24. Les lives hebdomadaires avec Julien sont enregistrés, donc tu peux progresser même avec un agenda chargé." },
+  { q: "À quoi sert l'agent IA ?", a: "L'agent IA t'aide à organiser ta semaine, t'entraîner sur des situations concrètes, corriger tes phrases et préparer tes conversations importantes." },
+  { q: "Le programme prépare-t-il aussi au DELF ?", a: "Oui, le DELF reste un bonus de progression. Tu as des entraînements dédiés et deux examens blancs complets, sans perdre le focus principal: parler pour t'intégrer en France." },
 ];
 
 const FaqSection = () => (

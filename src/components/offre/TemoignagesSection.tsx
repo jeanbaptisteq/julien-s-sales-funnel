@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const temoignages = [
-  { nom: "Rafaela", pays: "🇧🇷", lecons: "16 leçons", texte: "Amazing class, comme d'habitude ! 🎉 I'm learning everything I need to feel more and more comfortable expressing myself in French. Julien supports me in all my endeavors!", note: 5 },
-  { nom: "Sammi", pays: "🇺🇸", lecons: "161 leçons", texte: "Julien is so patient, kind, and helpful. I had so much fun practicing my French with him and felt I was able to learn new things in just an hour. I highly recommend Julien!", note: 5 },
-  { nom: "Mohamed Taqi", pays: "🇲🇦", lecons: "2 leçons", texte: "J'ai eu un excellent cours avec Julien! On a parlé plein de sujets notamment nos passions le foot que je kiffe!! Franchement c'était amusant !! Julien il est super prof !", note: 5 },
-  { nom: "Jeffrey Nagler", pays: "🇺🇸", lecons: "1 leçon", texte: "Julien was a fantastic teacher and he corrected every single error that I made which is very rare to find in a teacher. He is a laid back, super interesting guy and I would recommend him to anyone!!", note: 5 },
-  { nom: "Grace O'Donnell", pays: "🇮🇪", lecons: "2 leçons", texte: "Chatting with Julien is so very easy. He is very easy going and has a lovely laid-back manner and a nice and firm way in correcting my French. I enjoy my lessons with Julien", note: 5 },
-  { nom: "Moa", pays: "🇸🇪", lecons: "2 leçons", texte: "Julien est un prof très sympa. Premier cours hiper agréable et excellente suggestion de matériel pour mes devoirs. Je vous conseille vivement :)", note: 5 },
+  { nom: "Rafaela", pays: "🇧🇷", texte: "Amazing class, comme d'habitude ! 🎉 I'm learning everything I need to feel more and more comfortable expressing myself in French. Julien supports me in all my endeavors!" },
+  { nom: "Sammi", pays: "🇺🇸", texte: "Julien is so patient, kind, and helpful. I had so much fun practicing my French with him and felt I was able to learn new things in just an hour. I highly recommend Julien!" },
+  { nom: "Mohamed Taqi", pays: "🇧🇭", texte: "J'ai eu un excellent cours avec Julien! On a parlé plein de sujets notamment nos passions le foot que je kiffe!! Franchement c'était amusant !! Julien il est super prof !" },
+  { nom: "Jeffrey Nagler", pays: "🇺🇸", texte: "Julien was a fantastic teacher and he corrected every single error that I made which is very rare to find in a teacher. He is a laid back, super interesting guy and I would recommend him to anyone!!" },
+  { nom: "Grace O'Donnell", pays: "🇮🇪", texte: "Chatting with Julien is so very easy. He is very easy going and has a lovely laid-back manner and a nice and firm way in correcting my French. I enjoy my lessons with Julien" },
+  { nom: "Moa", pays: "🇧🇷", texte: "Julien est un prof très sympa. Premier cours hiper agréable et excellente suggestion de matériel pour mes devoirs. Je vous conseille vivement :)" },
 ];
-
-const CARDS_PER_VIEW = { mobile: 1, desktop: 3 };
 
 const TemoignagesSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,24 +31,24 @@ const TemoignagesSection = () => {
   };
 
   return (
-    <section className="py-16 md:py-20 bg-foreground">
+    <section className="py-16 md:py-20 bg-card">
       <div className="container mx-auto px-4 max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold font-heading text-primary-foreground text-center mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground text-center mb-4">
           Ils m'ont fait <span className="text-accent">CONFIANCE !</span>
         </h2>
-        <p className="text-primary-foreground/60 text-center mb-12">Avis vérifiés de mes étudiants</p>
+        <p className="text-muted-foreground text-center mb-12">Avis vérifiés de mes étudiants</p>
 
         <div className="relative">
           {/* Navigation Arrows */}
           <button
             onClick={prev}
-            className="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center hover:opacity-80 transition-opacity shadow-lg"
+            className="absolute -left-4 md:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full gradient-bg text-primary-foreground flex items-center justify-center hover:opacity-90 transition-opacity shadow-lg"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
             onClick={next}
-            className="absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-accent text-accent-foreground flex items-center justify-center hover:opacity-80 transition-opacity shadow-lg"
+            className="absolute -right-4 md:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full gradient-bg text-primary-foreground flex items-center justify-center hover:opacity-90 transition-opacity shadow-lg"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -96,7 +94,7 @@ const TemoignagesSection = () => {
               key={i}
               onClick={() => setCurrentIndex(i)}
               className={`w-2.5 h-2.5 rounded-full transition-all ${
-                i === currentIndex ? "bg-accent w-6" : "bg-primary-foreground/20"
+                i === currentIndex ? "gradient-bg w-6" : "bg-muted-foreground/30"
               }`}
             />
           ))}
@@ -107,20 +105,14 @@ const TemoignagesSection = () => {
 };
 
 const TestimonialCard = ({ t }: { t: typeof temoignages[0] }) => (
-  <div className="bg-primary-foreground/5 border border-primary-foreground/10 rounded-2xl p-6 h-full flex flex-col">
+  <div className="bg-background border border-border rounded-2xl p-6 h-full flex flex-col shadow-sm">
     <div className="flex items-center gap-3 mb-3">
       <span className="text-2xl">{t.pays}</span>
       <div className="flex-1">
-        <p className="font-bold text-primary-foreground text-sm">{t.nom}</p>
-        <p className="text-primary-foreground/50 text-xs">{t.lecons} en Français</p>
+        <p className="font-bold text-foreground text-sm">{t.nom}</p>
       </div>
     </div>
-    <div className="flex gap-0.5 mb-3">
-      {[...Array(t.note)].map((_, j) => (
-        <Star key={j} className="w-4 h-4 fill-accent text-accent" />
-      ))}
-    </div>
-    <p className="text-primary-foreground/80 text-sm leading-relaxed flex-1">« {t.texte} »</p>
+    <p className="text-foreground/80 text-sm leading-relaxed flex-1">« {t.texte} »</p>
   </div>
 );
 

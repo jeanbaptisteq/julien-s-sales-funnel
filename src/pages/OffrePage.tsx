@@ -13,19 +13,14 @@ import FinalCtaSection from "@/components/offre/FinalCtaSection";
 const OffrePage = () => {
   return (
     <div className="min-h-screen bg-background">
-      <div className="bg-foreground text-primary-foreground text-center py-2.5 text-sm font-medium tracking-wide">
-        🇫🇷 PROFESSEUR JULIEN — Programme Complet de Français
-      </div>
-
       <HeroSection />
       <AvantApresSection />
+      <TemoignagesSection />
+      <JulienSection />
       <ModulesSection />
       <InclusSection />
       <GarantieSection />
-      
-      <TemoignagesSection />
       <PricingSection />
-      <JulienSection />
       <FaqSection />
       <FinalCtaSection />
 

@@ -2,15 +2,15 @@ import { motion } from "framer-motion";
 import { Video, Clock, Users, MessageCircle, Bot, FileText, Star, Award, Calendar } from "lucide-react";
 
 const inclus = [
-  { icon: Video, text: "4 modules vidéo complets", value: "149€" },
-  { icon: Clock, text: "Accès à vie à la plateforme", value: "99€" },
-  { icon: Users, text: "1 appel live avec Julien chaque semaine", value: "199€" },
-  { icon: MessageCircle, text: "Groupe privé de la communauté", value: "49€" },
-  { icon: Bot, text: "Agent IA personnel 24h/24", value: "99€" },
-  { icon: FileText, text: "Corrections personnalisées", value: "79€" },
-  { icon: Star, text: "Flashcards intelligentes par module", value: "49€" },
-  { icon: Award, text: "2 examens blancs DELF corrigés", value: "99€" },
-  { icon: Calendar, text: "Session 1:1 de 30 min avec Julien", value: "79€" },
+  { icon: Video, text: "4 modules vidéo complets" },
+  { icon: Clock, text: "Accès à vie à la plateforme" },
+  { icon: Users, text: "1 appel live avec Julien chaque semaine" },
+  { icon: MessageCircle, text: "Groupe privé de la communauté" },
+  { icon: Bot, text: "Agent IA personnel 24h/24" },
+  { icon: FileText, text: "Corrections personnalisées" },
+  { icon: Star, text: "Flashcards intelligentes par module" },
+  { icon: Award, text: "2 examens blancs DELF corrigés" },
+  { icon: Calendar, text: "Session 1:1 de 30 min avec Julien" },
 ];
 
 const InclusSection = () => (
@@ -33,18 +33,12 @@ const InclusSection = () => (
               <item.icon className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className="text-sm font-medium text-foreground flex-1">{item.text}</span>
-            <span className="text-xs text-muted-foreground font-medium">{item.value}</span>
           </motion.div>
         ))}
       </div>
-      <div className="mt-8 text-center">
-        <div className="inline-block bg-secondary border border-border rounded-xl px-6 py-3">
-          <p className="text-foreground text-sm">
-            Valeur totale : <span className="line-through text-muted-foreground">901€</span>{" "}
-            <span className="text-accent font-bold text-xl ml-2">397€</span>
-          </p>
-        </div>
-      </div>
+      <p className="mt-8 text-center text-sm text-muted-foreground">
+        Tout est déjà prêt pour t'aider à progresser vite et t'intégrer durablement.
+      </p>
     </div>
   </section>
 );

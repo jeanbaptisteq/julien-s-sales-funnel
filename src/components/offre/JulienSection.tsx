@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
 import profileImage from "@/assets/profile-julien.jpg";
 
 const TikTokIcon = () => (
@@ -41,10 +40,6 @@ const JulienSection = () => (
         />
         <div>
           <h3 className="text-2xl font-bold font-heading text-foreground mb-1">Julien Bouyer</h3>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="flex gap-0.5">{[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-accent text-accent" />)}</div>
-            <span className="text-xs text-muted-foreground">4.9/5 — Avis étudiants</span>
-          </div>
           <div className="space-y-3 text-muted-foreground leading-relaxed">
             <p>
               Moi, c'est Julien. J'ai commencé à enseigner le français par hasard au Brésil en 2020. <strong className="text-foreground">Je sais ce que c'est d'apprendre une langue en partant de zéro</strong> — j'ai appris l'anglais, l'italien et le portugais.
