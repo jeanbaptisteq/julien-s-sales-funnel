@@ -18,7 +18,7 @@ const HeroSection = () => (
           De A1/A2 à B1/B2 — à ton rythme, avec un vrai accompagnement
         </p>
         <p className="text-primary-foreground/70 mb-4">
-          Prépare ton certificat TEF/TCF et décroche ta vie en France
+          Prépare ton DELF et décroche ta vie en France
         </p>
         <div className="flex items-center justify-center gap-2 mb-8">
           <div className="flex gap-0.5">

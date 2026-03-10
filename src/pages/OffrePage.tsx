@@ -22,7 +22,7 @@ const OffrePage = () => {
       <ModulesSection />
       <InclusSection />
       <GarantieSection />
-      <SemaineSection />
+      
       <TemoignagesSection />
       <PricingSection />
       <JulienSection />
