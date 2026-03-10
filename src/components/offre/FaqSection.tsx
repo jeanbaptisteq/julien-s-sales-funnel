@@ -3,7 +3,7 @@ const faqs = [
   { q: "Est-ce que je peux suivre à mon propre rythme ?", a: "Toutes les vidéos sont en accès libre sur la plateforme, disponibles 24h/24. Seuls les lives hebdomadaires avec Julien ont un horaire fixe — et ils sont enregistrés si tu ne peux pas y assister." },
   { q: "À quoi sert l'agent IA ?", a: "L'agent IA t'aide à planifier ta semaine d'apprentissage, répondre à tes questions grammaticales, corriger tes phrases à l'écrit et suggérer des exercices selon ton niveau." },
   { q: "La session 1:1 avec Julien, c'est quand ?", a: "Cette session de 30 minutes a lieu dans les premiers jours après ton inscription. Elle sert à analyser ton niveau, comprendre tes objectifs et créer un plan d'action personnalisé." },
-  { q: "Le programme prépare-t-il vraiment au TEF/TCF ?", a: "Oui, le module 4 est entièrement dédié à la préparation aux certifications. Tu passes deux examens blancs complets avec corrections détaillées." },
+  { q: "Le programme prépare-t-il vraiment au DELF ?", a: "Oui, le module 3 est entièrement dédié à la préparation au DELF. Tu passes deux examens blancs complets avec corrections détaillées." },
 ];
 
 const FaqSection = () => (

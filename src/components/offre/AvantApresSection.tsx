@@ -5,13 +5,7 @@ const points = [
   { avant: "Tu bloques quand tu parles à un natif", apres: "Tu comprends et tu réponds naturellement" },
   { avant: "Tu manques de confiance pour ouvrir la bouche", apres: "Tu parles sans peur de faire des erreurs" },
   { avant: "Tu ne sais pas comment progresser", apres: "Tu as une méthode claire et des habitudes solides" },
-  { avant: "Tu es loin du niveau requis pour le TEF/TCF", apres: "Tu es prêt(e) à passer ton certificat" },
-];
-
-const profils = [
-  { emoji: "🏠", text: "Tu veux vivre ou travailler en France" },
-  { emoji: "📄", text: "Tu dois passer un certificat TEF ou TCF" },
-  { emoji: "⏰", text: "Tu n'as que 1 à 2h par semaine" },
+  { avant: "Tu es loin du niveau requis pour le DELF", apres: "Tu es prêt(e) à passer ton certificat" },
 ];
 
 const AvantApresSection = () => (
@@ -71,22 +65,6 @@ const AvantApresSection = () => (
         </div>
       </div>
 
-      {/* Profils */}
-      <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto">
-        {profils.map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="text-center p-5 rounded-xl bg-primary-foreground/5 border border-primary-foreground/10"
-          >
-            <span className="text-3xl mb-2 block">{item.emoji}</span>
-            <p className="text-sm font-medium text-primary-foreground/80">{item.text}</p>
-          </motion.div>
-        ))}
-      </div>
     </div>
   </section>
 );

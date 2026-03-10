@@ -18,7 +18,7 @@ const modules = [
   },
   {
     num: "03",
-    title: "Préparation TEF / TCF",
+    title: "Préparation DELF",
     level: "B1–B2 · Certification",
     value: "Valeur 199€",
     items: ["Grammaire avancée", "Stratégies par épreuve", "2 examens blancs complets", "Flashcards de révision", "Live hebdo : simulation d'examen"],

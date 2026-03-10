@@ -25,7 +25,7 @@ const PricingSection = () => (
               "Agent IA personnel",
               "Session 1:1 de 30 min avec Julien",
               "Communauté privée + corrections",
-              "2 examens blancs TEF/TCF",
+              "2 examens blancs DELF",
             ].map((item, i) => (
               <li key={i} className="flex items-center gap-3 text-sm text-foreground">
                 <CheckCircle className="w-4 h-4 text-primary flex-shrink-0" />

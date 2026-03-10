@@ -9,7 +9,7 @@ const inclus = [
   { icon: Bot, text: "Agent IA personnel 24h/24", value: "99€" },
   { icon: FileText, text: "Corrections personnalisées", value: "79€" },
   { icon: Star, text: "Flashcards intelligentes par module", value: "49€" },
-  { icon: Award, text: "2 examens blancs TEF/TCF corrigés", value: "99€" },
+  { icon: Award, text: "2 examens blancs DELF corrigés", value: "99€" },
   { icon: Calendar, text: "Session 1:1 de 30 min avec Julien", value: "79€" },
 ];
 
