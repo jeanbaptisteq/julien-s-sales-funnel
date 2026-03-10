@@ -5,13 +5,7 @@ const points = [
   { avant: "Tu bloques quand tu parles à un natif", apres: "Tu comprends et tu réponds naturellement" },
   { avant: "Tu manques de confiance pour ouvrir la bouche", apres: "Tu parles sans peur de faire des erreurs" },
   { avant: "Tu ne sais pas comment progresser", apres: "Tu as une méthode claire et des habitudes solides" },
-  { avant: "Tu es loin du niveau requis pour le TEF/TCF", apres: "Tu es prêt(e) à passer ton certificat" },
-];
-
-const profils = [
-  { emoji: "🏠", text: "Tu veux vivre ou travailler en France" },
-  { emoji: "📄", text: "Tu dois passer un certificat TEF ou TCF" },
-  { emoji: "⏰", text: "Tu n'as que 1 à 2h par semaine" },
+  { avant: "Tu es loin du niveau requis pour le DELF", apres: "Tu es prêt(e) à passer ton certificat" },
 ];
 
 const AvantApresSection = () => (
