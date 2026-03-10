@@ -9,7 +9,7 @@ const HeroSection = () => (
     <div className="container mx-auto px-4 py-20 md:py-28 relative z-10 max-w-4xl text-center">
       <div>
         <span className="inline-block px-4 py-1.5 rounded-full bg-primary-foreground/20 text-primary-foreground text-sm font-medium mb-6">
-          🇫🇷 NOUVELLE MÉTHODE — Plus efficace que jamais
+          🇫🇷 NOUVELLE MÉTHODE
         </span>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6 font-heading">
           Parle Français <br />en <span className="text-accent">4 Modules</span>
