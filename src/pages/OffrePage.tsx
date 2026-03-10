@@ -2,7 +2,7 @@ import HeroSection from "@/components/offre/HeroSection";
 import AvantApresSection from "@/components/offre/AvantApresSection";
 import ModulesSection from "@/components/offre/ModulesSection";
 import InclusSection from "@/components/offre/InclusSection";
-import SemaineSection from "@/components/offre/SemaineSection";
+
 import PricingSection from "@/components/offre/PricingSection";
 import GarantieSection from "@/components/offre/GarantieSection";
 import TemoignagesSection from "@/components/offre/TemoignagesSection";
