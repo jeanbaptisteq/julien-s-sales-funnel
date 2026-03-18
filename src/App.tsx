@@ -1,6 +1,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import AnalyticsTracker from "@/components/AnalyticsTracker";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -22,6 +23,10 @@ const QueryPathRedirect = () => {
     }
   }, [navigate, searchParams]);
 
+  if (searchParams.get("path")) {
+    return null;
+  }
+
   return <OptinPage />;
 };
 
@@ -31,6 +36,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
+        <AnalyticsTracker />
         <Routes>
           <Route path="/" element={<QueryPathRedirect />} />
           <Route path="/offre" element={<OffrePage />} />

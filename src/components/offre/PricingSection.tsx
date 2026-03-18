@@ -40,6 +40,10 @@ const PricingSection = () => (
           </ul>
           <Link
             to="/paiement"
+            data-track-event="cta_click"
+            data-track-label="pricing_join_program"
+            data-track-section="pricing"
+            data-track-destination="/paiement"
             className="w-full gradient-bg text-primary-foreground font-bold py-4 rounded-xl text-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2 text-center leading-tight px-6"
           >
             Je rejoins le programme d'immersion <ArrowRight className="w-5 h-5" />

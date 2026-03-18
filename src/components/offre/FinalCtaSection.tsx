@@ -13,6 +13,10 @@ const FinalCtaSection = () => (
         href="https://calendly.com/bouyerjulien08/30min"
         target="_blank"
         rel="noopener noreferrer"
+        data-track-event="cta_click"
+        data-track-label="book_call"
+        data-track-section="final_cta"
+        data-track-destination="https://calendly.com/bouyerjulien08/30min"
         className="inline-flex flex-col items-center justify-center gradient-bg text-primary-foreground font-bold py-4 px-10 rounded-xl text-lg hover:opacity-90 transition-opacity min-w-[320px]"
       >
         <span className="inline-flex items-center gap-2">

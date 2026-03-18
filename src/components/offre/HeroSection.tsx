@@ -1,16 +1,109 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
+import Player from "@vimeo/player";
+import { trackEvent } from "@/lib/analytics";
 
 const HeroSection = () => {
   const iframeRef = useRef<HTMLIFrameElement>(null);
+  const playerRef = useRef<Player | null>(null);
+  const progressMarks = useRef(new Set<number>());
   const [isMuted, setIsMuted] = useState(true);
 
+  useEffect(() => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    const player = new Player(iframe);
+    playerRef.current = player;
+    progressMarks.current = new Set();
+
+    const onPlay = () => {
+      trackEvent("vsl_play", {
+        event_category: "video",
+        event_label: "vimeo_vsl",
+        video_id: "1174749372",
+        video_title: "Video VSL (01)-original",
+      });
+    };
+
+    const onPause = () => {
+      trackEvent("vsl_pause", {
+        event_category: "video",
+        event_label: "vimeo_vsl",
+        video_id: "1174749372",
+        video_title: "Video VSL (01)-original",
+      });
+    };
+
+    const onEnded = () => {
+      trackEvent("vsl_complete", {
+        event_category: "video",
+        event_label: "vimeo_vsl",
+        video_id: "1174749372",
+        video_title: "Video VSL (01)-original",
+        progress: 100,
+      });
+    };
+
+    const onTimeUpdate = async (data: { percent?: number; seconds?: number; duration?: number }) => {
+      const percent = data.percent ? Math.round(data.percent * 100) : 0;
+      for (const mark of [25, 50, 75, 100]) {
+        if (percent >= mark && !progressMarks.current.has(mark)) {
+          progressMarks.current.add(mark);
+          trackEvent("vsl_progress", {
+            event_category: "video",
+            event_label: `vimeo_vsl_${mark}`,
+            video_id: "1174749372",
+            video_title: "Video VSL (01)-original",
+            progress: mark,
+            seconds_watched: Math.round(data.seconds ?? 0),
+            duration: Math.round(data.duration ?? 0),
+          });
+        }
+      }
+    };
+
+    const onLoaded = () => {
+      trackEvent("vsl_loaded", {
+        event_category: "video",
+        event_label: "vimeo_vsl",
+        video_id: "1174749372",
+        video_title: "Video VSL (01)-original",
+      });
+    };
+
+    player.on("play", onPlay);
+    player.on("pause", onPause);
+    player.on("ended", onEnded);
+    player.on("timeupdate", onTimeUpdate);
+    player.on("loaded", onLoaded);
+
+    return () => {
+      player.off("play", onPlay);
+      player.off("pause", onPause);
+      player.off("ended", onEnded);
+      player.off("timeupdate", onTimeUpdate);
+      player.off("loaded", onLoaded);
+      player.destroy().catch(() => {});
+      playerRef.current = null;
+      progressMarks.current = new Set();
+    };
+  }, []);
+
   const toggleSound = () => {
-    const frame = iframeRef.current?.contentWindow;
-    if (!frame) return;
     const nextMuted = !isMuted;
-    frame.postMessage(JSON.stringify({ method: "setMuted", value: nextMuted }), "*");
-    frame.postMessage(JSON.stringify({ method: "setVolume", value: nextMuted ? 0 : 1 }), "*");
+    const player = playerRef.current;
+    if (player) {
+      player.setMuted(nextMuted).catch(() => {});
+      player.setVolume(nextMuted ? 0 : 1).catch(() => {});
+    }
+    trackEvent("vsl_sound_toggle", {
+      event_category: "video",
+      event_label: nextMuted ? "mute" : "unmute",
+      video_id: "1174749372",
+      video_title: "Video VSL (01)-original",
+      muted: nextMuted,
+    });
     setIsMuted(nextMuted);
   };
 

@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ShieldCheck } from "lucide-react";
 import { WhopCheckoutEmbed } from "@whop/checkout/react";
+import { trackEvent } from "@/lib/analytics";
 
 const PaiementPage = () => {
   const [paymentMode, setPaymentMode] = useState<"one_time" | "split">("one_time");
@@ -9,11 +10,39 @@ const PaiementPage = () => {
   const oneTimePlanId = "plan_4URlY54jBzeTE";
   const splitPlanId = "plan_Uu9YJB5Kt6m1M";
   const selectedPlanId = paymentMode === "split" ? splitPlanId : oneTimePlanId;
+  const returnUrl = useMemo(() => {
+    if (typeof window === "undefined") {
+      return "https://jeanbaptisteq.github.io/julien-s-sales-funnel/offre?checkout=success";
+    }
+    return `${window.location.origin}${import.meta.env.BASE_URL}offre?checkout=success`;
+  }, []);
+
+  useEffect(() => {
+    trackEvent("payment_view", {
+      event_category: "page",
+      event_label: "payment",
+      selected_plan_id: oneTimePlanId,
+      payment_mode: "one_time",
+    });
+    trackEvent("checkout_view", {
+      event_category: "checkout",
+      event_label: oneTimePlanId,
+      selected_plan_id: oneTimePlanId,
+      payment_mode: "one_time",
+    });
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8 max-w-3xl">
-        <Link to="/offre" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8 text-sm">
+        <Link
+          to="/offre"
+          data-track-event="cta_click"
+          data-track-label="payment_back_offer"
+          data-track-section="payment"
+          data-track-destination="/offre"
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors mb-8 text-sm"
+        >
           <ArrowLeft className="w-4 h-4" /> Retour à l'offre
         </Link>
 
@@ -27,7 +56,11 @@ const PaiementPage = () => {
           <div className="space-y-2">
             <button
               type="button"
-              onClick={() => setPaymentMode("one_time")}
+              onClick={() => {
+                setPaymentMode("one_time");
+              }}
+              data-track-event="payment_plan_change"
+              data-track-label="one_time"
               className={`w-full rounded-xl border px-4 py-3 text-left transition-colors ${
                 paymentMode === "one_time"
                   ? "border-primary bg-primary/5"
@@ -47,7 +80,11 @@ const PaiementPage = () => {
 
             <button
               type="button"
-              onClick={() => setPaymentMode("split")}
+              onClick={() => {
+                setPaymentMode("split");
+              }}
+              data-track-event="payment_plan_change"
+              data-track-label="split"
               className={`w-full rounded-xl border px-4 py-3 text-left transition-colors ${
                 paymentMode === "split"
                   ? "border-primary bg-primary/5"
@@ -74,7 +111,7 @@ const PaiementPage = () => {
           <WhopCheckoutEmbed
             key={selectedPlanId}
             planId={selectedPlanId}
-            returnUrl="https://julien-wonder-tunnel.lovable.app/offre"
+            returnUrl={returnUrl}
           />
         </div>
 

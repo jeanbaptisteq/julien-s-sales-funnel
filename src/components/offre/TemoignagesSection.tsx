@@ -1,14 +1,91 @@
-import { useState } from "react";
+import { useRef, useState, type SyntheticEvent } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import lisianaVideo from "@/assets/testimonial-lisiana-bresil.mp4";
 import jonVideo from "@/assets/testimonial-jon-angleterre.mp4";
 import charlieVideo from "@/assets/testimonial-charlie-perou.mp4";
+import { trackEvent } from "@/lib/analytics";
 
 const videos = [
   { name: "Jonathan", src: jonVideo },
   { name: "Charlie", src: charlieVideo },
   { name: "Lisiana", src: lisianaVideo },
 ];
+
+const TrackedTestimonialVideo = ({
+  name,
+  src,
+  index,
+}: {
+  name: string;
+  src: string;
+  index: number;
+}) => {
+  const progressMarks = useRef(new Set<number>());
+
+  const handlePlay = () => {
+    trackEvent("testimonial_play", {
+      event_category: "video",
+      event_label: name,
+      testimonial_name: name,
+      testimonial_index: index + 1,
+    });
+  };
+
+  const handlePause = () => {
+    trackEvent("testimonial_pause", {
+      event_category: "video",
+      event_label: name,
+      testimonial_name: name,
+      testimonial_index: index + 1,
+    });
+  };
+
+  const handleEnded = () => {
+    trackEvent("testimonial_complete", {
+      event_category: "video",
+      event_label: name,
+      testimonial_name: name,
+      testimonial_index: index + 1,
+      progress: 100,
+    });
+  };
+
+  const handleTimeUpdate = (event: SyntheticEvent<HTMLVideoElement>) => {
+    const videoEl = event.currentTarget;
+    if (!videoEl.duration || Number.isNaN(videoEl.duration)) return;
+
+    const percent = Math.round((videoEl.currentTime / videoEl.duration) * 100);
+    for (const mark of [25, 50, 75, 100]) {
+      if (percent >= mark && !progressMarks.current.has(mark)) {
+        progressMarks.current.add(mark);
+        trackEvent("testimonial_progress", {
+          event_category: "video",
+          event_label: name,
+          testimonial_name: name,
+          testimonial_index: index + 1,
+          progress: mark,
+        });
+      }
+    }
+  };
+
+  return (
+    <video
+      key={src}
+      className="w-full rounded-2xl aspect-[9/16] bg-black object-cover"
+      controls
+      playsInline
+      preload="metadata"
+      onPlay={handlePlay}
+      onPause={handlePause}
+      onEnded={handleEnded}
+      onTimeUpdate={handleTimeUpdate}
+    >
+      <source src={src} type="video/mp4" />
+      Ton navigateur ne supporte pas la lecture vidéo.
+    </video>
+  );
+};
 
 const TemoignagesSection = () => {
   const [mobileIndex, setMobileIndex] = useState(0);
@@ -31,16 +108,11 @@ const TemoignagesSection = () => {
         <div className="md:hidden">
           <div className="relative">
             <article className="rounded-3xl p-3 border-2 border-[#9cd8ff] bg-white shadow-[0_10px_30px_rgba(56,189,248,0.18)]">
-              <video
-                key={videos[mobileIndex].src}
-                className="w-full rounded-2xl aspect-[9/16] bg-black object-cover"
-                controls
-                playsInline
-                preload="metadata"
-              >
-                <source src={videos[mobileIndex].src} type="video/mp4" />
-                Ton navigateur ne supporte pas la lecture vidéo.
-              </video>
+              <TrackedTestimonialVideo
+                src={videos[mobileIndex].src}
+                name={videos[mobileIndex].name}
+                index={mobileIndex}
+              />
               <p className="mt-4 text-center text-xl font-extrabold tracking-wide text-[#1e88e5]">
                 {videos[mobileIndex].name}
               </p>
@@ -71,15 +143,7 @@ const TemoignagesSection = () => {
               key={video.src}
               className="rounded-3xl p-3 md:p-4 border-2 border-[#9cd8ff] bg-white shadow-[0_10px_30px_rgba(56,189,248,0.18)]"
             >
-              <video
-                className="w-full rounded-2xl aspect-[9/16] bg-black object-cover"
-                controls
-                playsInline
-                preload="metadata"
-              >
-                <source src={video.src} type="video/mp4" />
-                Ton navigateur ne supporte pas la lecture vidéo.
-              </video>
+          <TrackedTestimonialVideo name={video.name} src={video.src} index={i} />
               <p className="mt-4 text-center text-xl font-extrabold tracking-wide text-[#1e88e5]">
                 {video.name}
               </p>

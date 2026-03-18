@@ -6,6 +6,7 @@ import { PhoneInput } from "react-international-phone";
 import "react-international-phone/style.css";
 import methodeImage from "@/assets/methode-france-avec-julien.jpg";
 import { supabase } from "@/integrations/supabase/client";
+import { trackEvent } from "@/lib/analytics";
 
 const temoignages = Object.entries(
   import.meta.glob("../assets/temoignages-pdf/*.png", { eager: true, import: "default" }),
@@ -36,6 +37,11 @@ const OptinPage = () => {
     if (!email || !name) return;
 
     setIsSubmitting(true);
+    trackEvent("form_submit_attempt", {
+      event_category: "lead",
+      event_label: "optin",
+      form_name: "optin",
+    });
 
     // Normalize phone: keep only digits and leading +
     const normalizedPhone = phone.replace(/[^\d+]/g, "").replace(/(?!^\+)\+/g, "") || null;
@@ -53,6 +59,13 @@ const OptinPage = () => {
         .single();
 
       if (!error && lead) {
+        trackEvent("form_submit_success", {
+          event_category: "lead",
+          event_label: "optin",
+          form_name: "optin",
+          lead_id: lead.id,
+        });
+
         // Non-blocking: sync to Systeme.io
         supabase.functions.invoke("sync-systeme-contact", {
           body: { email: email.trim().toLowerCase(), firstName: name.trim(), phone: validPhone },
@@ -62,8 +75,21 @@ const OptinPage = () => {
         supabase.functions.invoke("send-lead-magnet", {
           body: { email: email.trim().toLowerCase(), first_name: name.trim(), phone: validPhone },
         }).catch(() => {});
+      } else {
+        trackEvent("form_submit_error", {
+          event_category: "lead",
+          event_label: "optin",
+          form_name: "optin",
+          error_message: error?.message ?? "unknown_error",
+        });
       }
     } catch {
+      trackEvent("form_submit_error", {
+        event_category: "lead",
+        event_label: "optin",
+        form_name: "optin",
+        error_message: "exception",
+      });
       // Best-effort: navigate even on error
     } finally {
       setIsSubmitting(false);
@@ -93,6 +119,9 @@ const OptinPage = () => {
           <div className="relative z-10 mx-auto max-w-3xl">
             <button
               type="button"
+              data-track-event="cta_click"
+              data-track-label="optin_preview_open"
+              data-track-section="hero"
               onClick={() => setIsModalOpen(true)}
               className="group relative block w-full overflow-hidden rounded-2xl border border-border shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-400/70"
               aria-label="Ouvrir le formulaire d'accès à la vidéo"
@@ -116,6 +145,9 @@ const OptinPage = () => {
             </button>
             <button
               type="button"
+              data-track-event="cta_click"
+              data-track-label="optin_primary_open"
+              data-track-section="hero"
               onClick={() => setIsModalOpen(true)}
               className="mt-5 w-full rounded-full bg-cyan-600 px-6 py-4 text-lg font-bold text-white hover:bg-cyan-500 transition-colors flex items-center justify-center gap-2"
             >
@@ -183,6 +215,9 @@ const OptinPage = () => {
             </p>
             <button
               type="button"
+              data-track-event="cta_click"
+              data-track-label="optin_secondary_open"
+              data-track-section="social_proof"
               onClick={() => setIsModalOpen(true)}
               className="mt-4 rounded-full bg-cyan-600 px-8 py-4 text-base md:text-lg font-bold text-white hover:bg-cyan-500 transition-colors inline-flex items-center gap-2"
             >
@@ -217,9 +252,9 @@ const OptinPage = () => {
               <button
                 type="button"
                 aria-label="Fermer"
-                onClick={() => setIsModalOpen(false)}
-                className="ml-auto flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground hover:bg-slate-200"
-              >
+              onClick={() => setIsModalOpen(false)}
+              className="ml-auto flex h-10 w-10 items-center justify-center rounded-full text-muted-foreground hover:bg-slate-200"
+            >
                 <X className="h-6 w-6" />
               </button>
 
@@ -229,6 +264,7 @@ const OptinPage = () => {
 
               <motion.form
                 id="optin-form"
+                data-track-form="optin"
                 onSubmit={handleSubmit}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -298,6 +334,9 @@ const OptinPage = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
+                  data-track-event="form_submit"
+                  data-track-label="optin_submit_button"
+                  data-track-section="modal"
                   className="w-full rounded-full bg-cyan-600 px-6 py-3.5 text-base md:text-lg font-bold text-white hover:bg-cyan-500 transition-colors disabled:opacity-60 flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? "Envoi en cours…" : (<>JE VEUX OBTENIR LE RENDEZ-VOUS <ArrowRight className="h-5 w-5" /></>)}
