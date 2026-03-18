@@ -4,7 +4,7 @@ import { CheckCircle } from "lucide-react";
 const modules = [
   {
     num: "01",
-    title: "Parler au quotidien en France",
+    title: "Parler au quotidien en environnement francophone",
     level: "A2–B1 · Vie quotidienne",
     items: ["Techniques anti-blocage", "Parler logement, transport, santé", "Exprimer un besoin, demander de l'aide", "Flashcards de grammaire en contexte", "Live hebdo : mises en situation guidées"],
   },
@@ -26,9 +26,8 @@ const ModulesSection = () => (
   <section className="py-16 md:py-20">
     <div className="container mx-auto px-4 max-w-5xl">
       <h2 className="text-3xl md:text-4xl font-bold font-heading text-foreground text-center mb-4">
-        Ce que tu auras pour <span className="text-accent">t'intégrer en France</span>
+        Ce que tu auras pour <span className="text-accent">vivre l'immersion francophone</span>
       </h2>
-      <p className="text-muted-foreground text-center mb-12">Chaque module contient des vidéos + un live hebdomadaire orientés situations réelles</p>
       <div className="space-y-6">
         {modules.map((mod, i) => (
           <motion.div
@@ -56,9 +55,6 @@ const ModulesSection = () => (
           </motion.div>
         ))}
       </div>
-      <p className="mt-8 text-center text-sm text-muted-foreground">
-        Un parcours complet et progressif, pensé pour des résultats concrets en France.
-      </p>
     </div>
   </section>
 );

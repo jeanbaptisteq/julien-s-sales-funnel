@@ -1,8 +1,8 @@
 const faqs = [
-  { q: "Est-ce utile si je ne suis pas encore en France ?", a: "Oui, c'est justement prévu pour ça. Tu prépares les situations que tu vas vivre (logement, travail, démarches, échanges du quotidien) pour arriver plus confiant(e) et opérationnel(le)." },
+  { q: "Est-ce utile si je ne vis pas encore dans un pays francophone ?", a: "Oui, c'est justement prévu pour ça. Tu prépares les situations que tu vas vivre (logement, travail, démarches, échanges du quotidien) pour arriver plus confiant(e) et opérationnel(le)." },
   { q: "Est-ce que je peux suivre à mon propre rythme ?", a: "Oui. Les vidéos sont accessibles 24h/24. Les lives hebdomadaires avec Julien sont enregistrés, donc tu peux progresser même avec un agenda chargé." },
   { q: "À quoi sert l'agent IA ?", a: "L'agent IA t'aide à organiser ta semaine, t'entraîner sur des situations concrètes, corriger tes phrases et préparer tes conversations importantes." },
-  { q: "Le programme prépare-t-il aussi au DELF ?", a: "Oui, le DELF reste un bonus de progression. Tu as des entraînements dédiés et deux examens blancs complets, sans perdre le focus principal: parler pour t'intégrer en France." },
+  { q: "Le programme prépare-t-il aussi au DELF ?", a: "Oui, le DELF reste un bonus de progression. Tu as des entraînements dédiés et deux examens blancs complets, sans perdre le focus principal: parler pour vivre l'immersion francophone." },
 ];
 
 const FaqSection = () => (

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Video, Clock, Users, MessageCircle, Bot, FileText, Star, Award, Calendar } from "lucide-react";
+import { Video, Clock, Users, MessageCircle, Bot, FileText, Star, Award, Calendar, ShieldCheck } from "lucide-react";
 
 const inclus = [
   { icon: Video, text: "4 modules vidéo complets" },
@@ -39,6 +39,25 @@ const InclusSection = () => (
       <p className="mt-8 text-center text-sm text-muted-foreground">
         Tout est déjà prêt pour t'aider à progresser vite et t'intégrer durablement.
       </p>
+
+      <div className="mt-10">
+        <div className="flex flex-col md:flex-row items-center gap-6 bg-white border border-[#b9dff8] rounded-2xl p-6 md:p-8 shadow-sm">
+          <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0">
+            <ShieldCheck className="w-8 h-8 text-cyan-600" />
+          </div>
+          <div className="text-center md:text-left">
+            <div className="flex items-center gap-3 justify-center md:justify-start mb-2">
+              <h3 className="text-xl font-bold font-heading text-slate-900">Garantie</h3>
+              <span className="text-slate-900 text-xs font-bold px-3 py-1 rounded-full uppercase border border-slate-200 bg-white">
+                Satisfait ou remboursé
+              </span>
+            </div>
+            <p className="text-slate-600 text-sm">
+              Si après 30 jours tu n'es pas satisfait du programme, on te rembourse intégralement. Sans condition, sans justification.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 );

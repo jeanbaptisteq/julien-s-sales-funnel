@@ -4,7 +4,6 @@ import ModulesSection from "@/components/offre/ModulesSection";
 import InclusSection from "@/components/offre/InclusSection";
 
 import PricingSection from "@/components/offre/PricingSection";
-import GarantieSection from "@/components/offre/GarantieSection";
 import TemoignagesSection from "@/components/offre/TemoignagesSection";
 import JulienSection from "@/components/offre/JulienSection";
 import FaqSection from "@/components/offre/FaqSection";
@@ -12,14 +11,13 @@ import FinalCtaSection from "@/components/offre/FinalCtaSection";
 
 const OffrePage = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#eaf6ff]">
       <HeroSection />
       <AvantApresSection />
       <TemoignagesSection />
       <JulienSection />
       <ModulesSection />
       <InclusSection />
-      <GarantieSection />
       <PricingSection />
       <FaqSection />
       <FinalCtaSection />

@@ -18,7 +18,7 @@ const GarantieSection = () => (
             </span>
           </div>
           <p className="text-primary-foreground/70 text-sm">
-            Si après 14 jours tu n'es pas satisfait du programme, on te rembourse intégralement. Sans condition, sans justification.
+            Si après 30 jours tu n'es pas satisfait du programme, on te rembourse intégralement. Sans condition, sans justification.
           </p>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profileImage from "@/assets/profile-julien.jpg";
+import profileImage from "@/assets/julien-presentation.jpg";
 
 const TikTokIcon = () => (
   <svg viewBox="0 0 24 24" className="w-8 h-8 mx-auto" fill="currentColor">
@@ -19,10 +19,17 @@ const YouTubeIcon = () => (
   </svg>
 );
 
+const FacebookIcon = () => (
+  <svg viewBox="0 0 24 24" className="w-8 h-8 mx-auto" fill="currentColor">
+    <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.099 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.414c0-3.017 1.792-4.687 4.533-4.687 1.312 0 2.686.236 2.686.236v2.963h-1.514c-1.491 0-1.956.929-1.956 1.883v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.099 24 12.073z" />
+  </svg>
+);
+
 const socials = [
   { platform: "TikTok", icon: <TikTokIcon />, followers: "455.2K" },
   { platform: "Instagram", icon: <InstagramIcon />, followers: "168K" },
   { platform: "YouTube", icon: <YouTubeIcon />, followers: "3.88K" },
+  { platform: "Facebook", icon: <FacebookIcon />, followers: "302K" },
 ];
 
 const JulienSection = () => (
@@ -42,10 +49,10 @@ const JulienSection = () => (
           <h3 className="text-2xl font-bold font-heading text-foreground mb-1">Julien Bouyer</h3>
           <div className="space-y-3 text-muted-foreground leading-relaxed">
             <p>
-              Moi, c'est Julien. J'ai commencé à enseigner le français par hasard au Brésil en 2020. <strong className="text-foreground">Je sais ce que c'est d'apprendre une langue en partant de zéro</strong> — j'ai appris l'anglais, l'italien et le portugais.
+              Moi, c'est Julien. J'ai commencé à enseigner le français par hasard au Brésil en 2020. <strong className="text-foreground">Je sais ce que c'est d'apprendre une langue en partant de zéro</strong>, j'ai appris l'anglais, l'italien et le portugais.
             </p>
             <p>
-              Diplômé d'un <strong className="text-foreground">DU en enseignement du FLE</strong> (Université de Grenoble), j'accompagne des centaines d'étudiants du monde entier. Ma méthode : recréer l'immersion chez toi, sans venir en France.
+              Diplômé d'un <strong className="text-foreground">DU en enseignement du FLE</strong> (Université de Grenoble), j'accompagne des centaines d'étudiants du monde entier. Ma méthode : recréer l'immersion chez toi, sans devoir vivre en France.
             </p>
             <p className="text-foreground font-medium italic">
               « Apprendre une langue, ça m'a permis de rencontrer la femme de ma vie. Et ça peut aussi t'ouvrir des portes que tu n'imagines même pas. »
@@ -54,7 +61,7 @@ const JulienSection = () => (
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
         {socials.map((s, i) => (
           <motion.div
             key={i}
