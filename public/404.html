@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Julien - Redirect</title>
+    <script>
+      (function () {
+        var base = "/julien-s-sales-funnel";
+        var path = window.location.pathname.replace(new RegExp("^" + base + "/?"), "/");
+        if (path === "/") {
+          window.location.replace(base + "/");
+          return;
+        }
+        var search = window.location.search ? window.location.search.slice(1) : "";
+        var hash = window.location.hash ? window.location.hash.slice(1) : "";
+        var next = base + "/?path=" + encodeURIComponent(path);
+        if (search) next += "&" + search;
+        if (hash) next += "#/" + hash.replace(/^#\/?/, "");
+        window.location.replace(next);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
