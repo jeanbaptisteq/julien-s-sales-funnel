@@ -119,7 +119,7 @@ const HeroSection = () => {
           </h1>
           <p className="text-lg md:text-xl text-slate-700 font-semibold mb-4">
             En{" "}
-            <span className="bg-cyan-200 text-black px-2 py-1 rounded-md">
+            <span className="border-b-2 border-cyan-400 text-slate-900">
               4 mois
             </span>
             , communique efficacement en français dans ta vie de tous les jours
