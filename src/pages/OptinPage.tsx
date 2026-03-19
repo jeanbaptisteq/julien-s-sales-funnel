@@ -71,10 +71,6 @@ const OptinPage = () => {
           body: { email: email.trim().toLowerCase(), firstName: name.trim(), phone: validPhone },
         }).catch(() => {});
 
-        // Non-blocking: send lead magnet email
-        supabase.functions.invoke("send-lead-magnet", {
-          body: { email: email.trim().toLowerCase(), first_name: name.trim(), phone: validPhone },
-        }).catch(() => {});
       } else {
         trackEvent("form_submit_error", {
           event_category: "lead",
